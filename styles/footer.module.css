@@ -1,0 +1,73 @@
+.cover {
+  background-color: var(--cyan75);
+  color: var(--white);
+  padding: var(--space-sm) 0;
+}
+
+.flexContainer {
+  composes: defaultCenter from 'styles/site-utilities.module.css';
+  padding: 0 5em;
+}
+
+@media (max-width: 767px) {
+  .flexContainer {
+    gap: 3em;
+  }
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.siteList {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.siteList li {
+  padding: 0.3em 1em;
+  transition: 0.3s;
+}
+
+.siteList li:hover {
+  background-color: var(--cyan50);
+}
+
+.siteList > * + * {
+  border-top: 0.05em solid var(--white);
+}
+
+.logoTw {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 0.5em;
+  color: var(--cyan50);
+  background-color: var(--white);
+  border-radius: 0.2em;
+}
+
+.logoTw:hover {
+  background-color: var(--cyan50);
+  color: var(--black);
+  transition: 0.2s;
+}
+
+.logoIn {
+  composes: logoTw;
+  color: rgb(239, 96, 215);
+}
+
+.logoIn:hover {
+  background-color: rgb(246, 181, 235);
+  color: var(--black);
+}
+
+.snsLogos {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}

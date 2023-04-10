@@ -1,0 +1,35 @@
+/* サイト全体の体裁をまとめて管理 */
+/* 両端揃えレイアウト */
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* モバイルは左端揃え、デスクトップは横並び */
+.default {
+  display: flex;
+  flex-direction: column;
+  /* モバイル用、列状に配置 */
+}
+
+@media (min-width: 768px) {
+  .default {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  /* デスクトップ用、行状に配置 */
+}
+
+/* モバイルでは中央揃え、デスクトップでは横並び、上下中央揃え */
+.defaultCenter {
+  composes: default;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .defaultCenter {
+    text-align: left;
+  }
+}

@@ -1,0 +1,55 @@
+.title {
+  composes: title from 'styles/post-header.module.css';
+  margin-top: var(--space-xs);
+}
+
+.picName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.publishDate {
+  font-size: var(--head3);
+  color: var(--gray80);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.5em 0 0.3em;
+}
+
+.nameTitle {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 3fr;
+}
+
+.nameTitle > * + * {
+  margin-left: 1em;
+}
+
+.pageTitle {
+  font-size: var(--head3);
+  font-weight: 700;
+}
+
+.siteHead > * + * {
+  margin-top: 3em;
+}
+
+/* .siteHead {
+  margin-top: 2em;
+} */
+
+.article {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 0.8em;
+}
+
+.newArticles {
+  border-bottom: 0.2em dotted var(--gray60);
+}
+
+.aboutUsText {
+  padding: 1em 2em 3em;
+}

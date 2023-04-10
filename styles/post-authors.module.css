@@ -1,0 +1,29 @@
+.name {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-size: var(--body);
+  font-weight: 600;
+}
+
+.name:hover {
+  background-color: var(--gray60);
+  color: var(--white);
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.namelist {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+
+.img {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.img:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}

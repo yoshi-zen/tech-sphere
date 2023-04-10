@@ -1,0 +1,48 @@
+.title {
+  composes: title from 'styles/post-header.module.css';
+  font-size: var(--head2);
+  margin-bottom: 0.5em;
+}
+
+.category {
+  composes: category from 'post-categories.module.css';
+  margin: 0.4em 0;
+  font-size: var(--body);
+}
+
+.categorylist {
+  padding: 0 1em;
+}
+
+.category > * {
+  z-index: 500;
+}
+
+.categoryCard {
+  width: fit-content;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.container {
+  margin-bottom: var(--space-xs);
+}
+
+.category::after {
+  position: absolute;
+  left: 0;
+  opacity: 0.3;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 0%;
+  background-color: var(--cyan50);
+  z-index: 100;
+  -moz-transition: width 0.3s ease;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+
+.category:hover::after {
+  width: 100%;
+}

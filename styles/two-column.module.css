@@ -1,0 +1,27 @@
+.flexContainer {
+  composes: default from './site-utilities.module.css';
+  gap: var(--space-xxs);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .main {
+    width: 840px;
+  }
+
+  .side {
+    width: 400px;
+  }
+}
+
+.main {
+  padding: var(--space-xs) var(--space-xs);
+  background-color: var(--gray20);
+  border-radius: 0.5em;
+}
+
+.side {
+  padding: var(--space-xs) var(--space-xxs);
+  background-color: var(--gray20);
+  border-radius: 0.5em;
+}

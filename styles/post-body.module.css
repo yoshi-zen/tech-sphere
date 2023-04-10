@@ -1,0 +1,83 @@
+.stack {
+  margin: 3em 0;
+  position: relative;
+  z-index: 100;
+}
+
+.stack > * + * {
+  margin-top: var(--stack-space, 1em);
+}
+
+.stack h2,
+.stack h3 {
+  --stack-space: 2em;
+}
+
+.stack h2 {
+  padding: 0.2em 1em;
+  background-color: var(--cyan50);
+  color: var(--white);
+  border-radius: 0.2em;
+}
+
+.stack h3 {
+  display: block;
+  padding-left: 0.5em;
+  position: relative;
+  z-index: auto;
+}
+
+.stack h3::before {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 1.2em;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  background-color: var(--cyan50);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.stack h2 + *,
+.stack h3 + * {
+  --stack-space: 0.6em;
+}
+
+.stack p {
+  line-height: 1.8;
+}
+
+.stack a {
+  color: var(--cyan25);
+}
+
+.stack a:hover {
+  color: var(--white);
+  background-color: var(--cyan25);
+  transition: 0.2s;
+}
+
+.stack blockquote {
+  color: var(--gray80);
+  position: relative;
+}
+
+.stack p code {
+  background-color: var(--white);
+  padding: 0 0.5em;
+  margin: 0 0.5em;
+  border-radius: 0.2em;
+  border: solid 0.1em var(--gray60);
+}
+
+.stack blockquote::before {
+  position: absolute;
+  display: block;
+  content: '';
+  left: -1.5em;
+  width: 0.3em;
+  height: 100%;
+  background-color: var(--gray60);
+}

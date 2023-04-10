@@ -1,0 +1,8 @@
+.flexContainer {
+  composes: spaceBetween from 'styles/site-utilities.module.css';
+}
+
+.cover {
+  box-shadow: 0px 1px 10px 0px var(--gray40);
+  height: 50px;
+}

@@ -1,0 +1,28 @@
+.flexContainer {
+  composes: defaultCenter from 'styles/site-utilities.module.css';
+}
+
+.texts {
+  padding-top: calc(var(--disp) * 0.5);
+  padding-bottom: calc(var(--disp) * 0.3);
+}
+
+.title {
+  font-size: var(--disp);
+  font-weight: 200;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-size: var(--head2);
+}
+
+.image {
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: 20%;
+  }
+}

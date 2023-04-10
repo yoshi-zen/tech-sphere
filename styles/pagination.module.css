@@ -1,0 +1,26 @@
+.prevGrid {
+  display: grid;
+  grid-template-columns: 1fr 10fr 30fr;
+  gap: 1em;
+  align-items: center;
+  text-align: start;
+  padding: 0.5em 0;
+  border-top: 0.2em dotted var(--gray60);
+}
+
+.nextGrid {
+  display: grid;
+  grid-template-columns: 30fr 10fr 1fr;
+  gap: 1em;
+  align-items: center;
+  text-align: end;
+  padding: 0.5em 0;
+  border-top: 0.2em dotted var(--gray60);
+}
+
+.prevGrid:hover,
+.nextGrid:hover {
+  background-color: var(--gray60);
+  color: var(--white);
+  transition: 0.3s;
+}

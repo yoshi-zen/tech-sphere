@@ -1,0 +1,39 @@
+.authorCard:hover {
+  transform: scale(1.05);
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.profileImg {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.title {
+  composes: title from 'categories.module.css';
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  margin: var(--space-xs) 0;
+}
+
+.showMore {
+  display: flex;
+  font-size: var(--head3);
+  align-items: center;
+  gap: 0.5em;
+  justify-content: flex-end;
+}
+
+.nameImgContainer {
+  margin-top: 0.5em;
+  margin-left: 0.3em;
+  font-size: var(--head3);
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 1em;
+  align-items: center;
+}

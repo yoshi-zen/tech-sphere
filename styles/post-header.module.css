@@ -1,0 +1,41 @@
+.stack {
+  padding-bottom: var(--space-xxs);
+}
+
+.stack > * + * {
+  margin-top: var(--stack-space, 0.8em);
+}
+
+.subtitle {
+  font-size: var(--head3);
+  font-weight: 600;
+}
+
+.title {
+  --stack-space: 0;
+  background-color: var(--cyan50);
+  color: var(--white);
+  font-weight: 200;
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: 5px;
+}
+
+.author {
+  --stack-space: 0.1em;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  color: var(--gray60);
+  font-size: var(--small);
+}
+
+.dateCover {
+  --stack-space: 0.2em;
+  display: flex;
+  gap: 1.5em;
+  width: fit-content;
+  margin-left: auto;
+}

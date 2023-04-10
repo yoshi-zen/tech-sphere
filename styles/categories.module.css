@@ -1,0 +1,31 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  margin: var(--space-xs) 0;
+}
+
+.showMore {
+  display: flex;
+  font-size: var(--head3);
+  align-items: center;
+  gap: 0.5em;
+  justify-content: flex-end;
+}
+
+.categoryName {
+  font-size: var(--head2);
+  font-weight: 300;
+  padding: 0.3em 0;
+}
+
+.title {
+  composes: title from 'styles/post-header.module.css';
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.categoryCard:hover {
+  transform: scale(1.05);
+  opacity: 0.5;
+  transition: 0.3s;
+}
