@@ -90,5 +90,5 @@ code {
 }
 
 pre {
-  /* padding: 0 var(--space-xs); */
+  padding: 0 var(--space-xs);
 }

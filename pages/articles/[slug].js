@@ -95,7 +95,12 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const slug = context.params.slug
 
-  const post = await getPostBySlug(slug)
+  /* プレビュー用！ */
+  const draftKey = context.previewData.draftKey
+    ? { draftKey: context.previewData.draftKey }
+    : {}
+
+  const post = await getPostBySlug(slug, draftKey)
 
   const posts = await getPostByDate()
   /* 2ポストだけ　これいるか…？ */
