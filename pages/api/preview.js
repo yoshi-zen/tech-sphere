@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import { client } from 'lib/api'
 
 export default async function handler(req, res) {
@@ -12,6 +11,9 @@ export default async function handler(req, res) {
   // }
 
   /* reqはCMSから投げられたurlのようだな */
+  console.log(req.query.slug)
+  /* ↑が表示されないのはいったいなんでなんだ？ */
+
   if (!req.query.slug) {
     return res.status(404).end()
   }
@@ -34,6 +36,8 @@ export default async function handler(req, res) {
     slug: content['id'],
     draftKey: req.query.draftKey,
   })
-  res.writeHead(307, { Location: `/blog/${content['id']}` })
+  res.writeHead(307, { Location: `/articles/${content['slug']}` })
   res.end('Preview mode enabled')
+
+  /* ↑　無理 */
 }

@@ -88,7 +88,7 @@ export async function getStaticPaths() {
   return {
     // paths: ['/articles/posttest'],
     paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -110,6 +110,7 @@ export async function getStaticProps(context) {
 
   const allCats = await getAllCategories()
 
+  // console.log(post)
   const description = extractText(post.content)
 
   return {
