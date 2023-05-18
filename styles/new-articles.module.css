@@ -24,6 +24,11 @@
   margin: 0.5em 0 0.3em;
 }
 
+.name {
+  font-size: var(--space-xxs);
+  white-space: nowrap;
+}
+
 .nameTitle {
   display: grid;
   grid-template-columns: 1fr 1.5fr 4fr;

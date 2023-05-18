@@ -9,6 +9,7 @@ import styles from 'styles/new-articles.module.css'
 
 import introAlt from 'images/introAlt.png'
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons'
+import { nameConvert } from '@/lib/name-convert'
 
 export default function NewArticles({ posts, list = '', main = false }) {
   return (
@@ -50,7 +51,7 @@ export default function NewArticles({ posts, list = '', main = false }) {
                         />
                       </figure>
                     )}
-                    <p className={styles.name}>{author[0].name}</p>
+                    <p className={styles.name}>{nameConvert(author[0].name)}</p>
                   </div>
                 </Link>
               )}

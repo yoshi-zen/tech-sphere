@@ -23,12 +23,22 @@
     "eslint-config-next": "13.2.2",
     "html-react-parser": "^3.0.12",
     "html-to-text": "^9.0.5",
+    "katex": "^0.16.4",
+    "marked-katex": "^0.3.8",
     "microcms-js-sdk": "^2.3.2",
     "next": "13.2.2",
     "node-fetch": "^3.3.1",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-katex": "^3.0.1",
+    "rehype-katex": "^6.0.3",
+    "rehype-stringify": "^9.0.3",
+    "remark-html-katex": "^4.0.1",
+    "remark-math": "^5.1.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2"
   }
 }

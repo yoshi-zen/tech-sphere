@@ -21,6 +21,8 @@ import CategoryList from 'components/category-list'
 import PostConvert from 'components/post-convert'
 import { extractText } from 'lib/extract-text'
 
+import mathConvert from 'lib/math-convert'
+
 export default function Post({
   title,
   description,
@@ -96,11 +98,11 @@ export async function getStaticProps(context) {
   const slug = context.params.slug
 
   /* プレビュー用！ */
-  const draftKey = context.previewData.draftKey
-    ? { draftKey: context.previewData.draftKey }
-    : {}
+  // const draftKey = context.previewData.draftKey
+  //   ? { draftKey: context.previewData.draftKey }
+  //   : {}
 
-  const post = await getPostBySlug(slug, draftKey)
+  const post = await getPostBySlug(slug)
 
   const posts = await getPostByDate()
   /* 2ポストだけ　これいるか…？ */
