@@ -21,8 +21,6 @@ import CategoryList from 'components/category-list'
 import PostConvert from 'components/post-convert'
 import { extractText } from 'lib/extract-text'
 
-import mathConvert from 'lib/math-convert'
-
 export default function Post({
   title,
   description,
@@ -42,7 +40,7 @@ export default function Post({
       <PageMeta
         pageTitle={title}
         pageDesc={description}
-        pageImg={eyecatch.url}
+        pageImg={eyecatch.url ?? img}
         pageImgH={eyecatch.height}
         pageImgW={eyecatch.width}
       />
@@ -58,7 +56,7 @@ export default function Post({
             />
             <figure>
               <Image
-                src={eyecatch.url}
+                src={eyecatch.url ?? img}
                 alt=""
                 layout="responsive"
                 width={eyecatch.width}
@@ -86,10 +84,11 @@ export default function Post({
 
 export async function getStaticPaths() {
   const allSlugs = await getAllSlugs()
+  // console.log(allSlugs)
   /* 全スラッグを取得 */
   return {
-    // paths: ['/articles/posttest'],
-    paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
+    paths: ['/articles/esp1'],
+    // paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
     fallback: true,
   }
 }
@@ -113,6 +112,7 @@ export async function getStaticProps(context) {
   const allCats = await getAllCategories()
 
   // console.log(post)
+  // console.log(post.eyecatch)
   const description = extractText(post.content)
 
   return {

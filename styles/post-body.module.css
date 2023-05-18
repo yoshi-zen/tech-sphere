@@ -31,7 +31,40 @@
   position: absolute;
   display: block;
   content: '';
-  top: 1.2em;
+  top: -0.2em;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  background-color: var(--cyan50);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.stack h3::after {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 1.4em;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  background-color: var(--cyan50);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.stack h4 {
+  display: block;
+  position: relative;
+  z-index: auto;
+  margin: 1em 0 0.1em;
+}
+
+.stack h4::after {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 1.6em;
   left: 0;
   height: 10%;
   width: 100%;
@@ -43,6 +76,10 @@
 .stack h2 + *,
 .stack h3 + * {
   --stack-space: 0.6em;
+}
+
+.stack h4 + * {
+  --stack-space: 0.4em;
 }
 
 .stack p {

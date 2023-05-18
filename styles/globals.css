@@ -58,6 +58,10 @@ h3 {
   font-size: var(--head3);
 }
 
+h4 {
+  font-size: calc(var(--head3) * 0.95);
+}
+
 /* 既定のリセット */
 body,
 h1,

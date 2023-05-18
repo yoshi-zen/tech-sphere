@@ -16,7 +16,7 @@ export default function PostConvert({ contents }) {
     <>
       {contents.map(({ richEditor, lang, source }, index) => (
         <React.Fragment key={index}>
-          {console.log(richEditor)}
+          {/* {console.log(richEditor)} */}
           {parse(
             richEditor
               .replaceAll(/\$\$[^\$]*\$\$/g, (substring) =>
@@ -62,7 +62,7 @@ export default function PostConvert({ contents }) {
           {source && (
             <div className="code-toolbar">
               <pre
-                className="line-numbers language-html"
+                className="line-numbers"
                 style={{
                   whiteSpace: 'pre-wrap',
                   wordWrap: 'break-word',
