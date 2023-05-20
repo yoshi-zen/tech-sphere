@@ -87,8 +87,8 @@ export async function getStaticPaths() {
   // console.log(allSlugs)
   /* 全スラッグを取得 */
   return {
-    paths: ['/articles/esp1'],
-    // paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
+    // paths: ['/articles/esp1'],
+    paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
     fallback: true,
   }
 }
