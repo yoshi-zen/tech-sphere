@@ -15,9 +15,10 @@
   --stack-space: 0;
   background-color: var(--cyan50);
   color: var(--white);
-  font-weight: 200;
+  font-weight: 400;
   padding: var(--space-xxs) var(--space-xs);
   border-radius: 5px;
+  font-size: var(--head2);
 }
 
 .author {
