@@ -40,7 +40,7 @@ export default function Post({
       <PageMeta
         pageTitle={title}
         pageDesc={description}
-        pageImg={eyecatch.url ?? img}
+        pageImg={eyecatch.url}
         pageImgH={eyecatch.height}
         pageImgW={eyecatch.width}
       />
@@ -56,7 +56,7 @@ export default function Post({
             />
             <figure>
               <Image
-                src={eyecatch.url ?? img}
+                src={eyecatch.url}
                 alt=""
                 layout="responsive"
                 width={eyecatch.width}
@@ -89,7 +89,7 @@ export async function getStaticPaths() {
   return {
     // paths: ['/articles/esp1'],
     paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
-    fallback: true,
+    fallback: false,
   }
 }
 
