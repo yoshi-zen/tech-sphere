@@ -9,7 +9,7 @@ export default function PostAuthors({ authors }) {
     <div className={styles.namelist}>
       {authors.map(({ name, profile }) => (
         <div className={styles.name} key={name}>
-          <Link href="/authors">
+          <Link href={`/authors/${name}`}>
             {profile ? (
               <figure className={styles.img}>
                 <Image
@@ -33,7 +33,7 @@ export default function PostAuthors({ authors }) {
             )}
           </Link>
 
-          <Link href="/authors">{name}</Link>
+          <Link href={`/authors/${name}`}>{name}</Link>
         </div>
       ))}
     </div>

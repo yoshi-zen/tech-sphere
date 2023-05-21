@@ -79,6 +79,8 @@ ul {
 *::before,
 *::after {
   box-sizing: border-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
   /* 横幅の処理で、paddingを含むよう設定 */
 }
 

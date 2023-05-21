@@ -8,9 +8,26 @@
   margin-top: var(--stack-space, 1em);
 }
 
+.stack h2 + *,
+.stack h3 + * {
+  --stack-space: 0.8em;
+}
+
+.stack h2 + h3 {
+  --stack-space: 1em;
+}
+
+.stack h4 + * {
+  --stack-space: 0.6em;
+}
+
 .stack h2,
 .stack h3 {
   --stack-space: 2em;
+}
+
+.stack h4 {
+  --stack-space: 1em;
 }
 
 .stack h2 {
@@ -22,7 +39,7 @@
 
 .stack h3 {
   display: block;
-  padding-left: 0.5em;
+  padding-left: 1em;
   position: relative;
   z-index: auto;
 }
@@ -33,9 +50,9 @@
   content: '';
   top: -0.2em;
   left: 0;
-  height: 10%;
+  height: 40%;
   width: 100%;
-  background-color: var(--cyan50);
+  background: linear-gradient(180deg, var(--cyan50), var(--white));
   opacity: 0.7;
   z-index: -1;
 }
@@ -44,11 +61,11 @@
   position: absolute;
   display: block;
   content: '';
-  top: 1.4em;
+  top: 1em;
   left: 0;
-  height: 10%;
+  height: 40%;
   width: 100%;
-  background-color: var(--cyan50);
+  background: linear-gradient(0deg, var(--cyan50), var(--white));
   opacity: 0.7;
   z-index: -1;
 }
@@ -57,29 +74,20 @@
   display: block;
   position: relative;
   z-index: auto;
-  margin: 1em 0 0.1em;
+  padding-left: 1em;
 }
 
 .stack h4::after {
   position: absolute;
   display: block;
   content: '';
-  top: 1.6em;
+  top: 1.4em;
   left: 0;
-  height: 10%;
+  height: 15%;
   width: 100%;
   background-color: var(--cyan50);
   opacity: 0.7;
   z-index: -1;
-}
-
-.stack h2 + *,
-.stack h3 + * {
-  --stack-space: 0.6em;
-}
-
-.stack h4 + * {
-  --stack-space: 0.4em;
 }
 
 .stack p {
@@ -117,4 +125,24 @@
   width: 0.3em;
   height: 100%;
   background-color: var(--gray60);
+}
+
+.stack ul,
+.stack ol {
+  background: #fcfcfc;
+  /* padding: 0.5em 0.5em 0.5em 2em; */
+  padding-left: 1em;
+  margin-left: 1em;
+  border: solid 0.1em gray; /*線の種類 太さ 色*/
+}
+
+.stack ul li::before,
+.stack ol li::before {
+  content: '・ ';
+}
+
+.stack ul li,
+.stack ol li {
+  line-height: 1; /*文の行高*/
+  padding: 0.5em 0; /*前後の文との余白*/
 }

@@ -52,9 +52,19 @@
 .pageTitle:hover::after,
 .pageTitle2:hover::after {
   position: absolute;
-  content: 'See more... >';
+  /* content: 'See more... >'; */
   bottom: 0;
   right: 0.6em;
+}
+
+@media (min-width: 1120px) {
+  .pageTitle:hover::after,
+  .pageTitle2:hover::after {
+    position: absolute;
+    content: 'See more... >';
+    bottom: 0;
+    right: 0.6em;
+  }
 }
 
 .nameTitle > * + *,
@@ -66,6 +76,7 @@
   height: 100%;
   font-size: var(--head3);
   font-weight: 400;
+  line-height: 1.2;
 }
 
 .pageTitle2 {
@@ -74,6 +85,12 @@
   font-size: calc(var(--body) * 0.9);
   font-weight: 300;
   line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .pageTitle2 {
+    font-size: var(--head3);
+  }
 }
 
 .article {
