@@ -52,16 +52,15 @@
 .pageTitle:hover::after,
 .pageTitle2:hover::after {
   position: absolute;
-  /* content: 'See more... >'; */
+  content: 'See more... >';
   bottom: 0;
   right: 0.6em;
 }
 
-@media (min-width: 1120px) {
-  .pageTitle:hover::after,
+@media (max-width: 1120px) {
   .pageTitle2:hover::after {
     position: absolute;
-    content: 'See more... >';
+    content: '';
     bottom: 0;
     right: 0.6em;
   }
