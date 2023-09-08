@@ -20,6 +20,7 @@ import Pagination from 'components/pagination'
 import CategoryList from 'components/category-list'
 import PostConvert from 'components/post-convert'
 import { extractText } from 'lib/extract-text'
+import CommentForm from '@/components/comment-form'
 
 export default function Post({
   title,
@@ -70,6 +71,7 @@ export default function Post({
             </PostBody>
           </article>
 
+          <CommentForm />
           <Pagination prevPost={prev} nextPost={next} />
         </TwoMain>
 

@@ -1,0 +1,10 @@
+.commentFormContainer > * + * {
+  margin-top: 0.5em;
+}
+
+.title {
+  background-color: var(--cyan50);
+  color: var(--white);
+  padding: 0.3em 2em;
+  border-radius: 0.3em;
+}
