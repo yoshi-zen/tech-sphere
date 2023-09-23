@@ -15,6 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "13.2.2",
+    "@supabase/auth-ui-react": "^0.4.4",
     "@supabase/supabase-js": "^2.33.1",
     "@tensorflow/tfjs": "^4.2.0",
     "@tensorflow/tfjs-node": "^4.2.0",

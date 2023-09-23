@@ -4,4 +4,5 @@
 
 .title {
   composes: stack h2 from 'styles/post-body.module.css';
+  margin: 0;
 }
