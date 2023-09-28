@@ -1,8 +1,88 @@
-.commentFormContainer > * + * {
-  margin-top: 0.5em;
+.commentForm_container > * + * {
+  margin-top: 0.8em;
 }
 
 .title {
   composes: stack h2 from 'styles/post-body.module.css';
   margin: 0;
+}
+
+.com_wrapper {
+  padding: 1em 1.5em;
+  margin-bottom: 2em;
+  background-color: var(--white);
+  border-radius: 0.5em;
+}
+
+.newCom_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--gray60);
+}
+
+.newCom_wrapper > * {
+  margin-top: 0.3em;
+}
+
+.com_wrapper > * + * {
+  margin-top: 0.5em;
+}
+
+.noComment_inner {
+  height: 4em;
+}
+
+.comments_container > * + * {
+  margin-top: 1em;
+}
+
+.nameDate_inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em;
+}
+
+.inputForm_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+}
+
+.button_ui {
+  padding: 0 1em;
+  background-color: var(--cyan50);
+  color: var(--white);
+  border: none;
+  border-radius: 0.2em;
+  height: 2em;
+  cursor: pointer;
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button_ui:hover {
+  background-color: var(--cyan75);
+  transition: 0.3s;
+}
+
+.textarea_ui {
+  width: 100%;
+  height: 9em;
+  padding: 1em 0;
+  resize: none;
+  border-radius: 0.2em;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid var(--gray60);
+  border-top: 1px solid var(--gray60);
+}
+
+.textarea_ui:focus {
+  outline: none;
+  /* background-color: var(--cyan25); */
 }

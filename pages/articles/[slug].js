@@ -24,6 +24,7 @@ import CommentForm from '@/components/comment-form'
 
 export default function Post({
   title,
+  slug,
   description,
   pDate,
   rDate,
@@ -71,7 +72,7 @@ export default function Post({
             </PostBody>
           </article>
 
-          <CommentForm />
+          <CommentForm slug={slug} />
           <Pagination prevPost={prev} nextPost={next} />
         </TwoMain>
 
@@ -120,6 +121,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       title: post.title,
+      slug: post.slug,
       description: description,
       pDate: post.publishDate,
       rDate: post.revisedDate,

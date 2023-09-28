@@ -4,8 +4,13 @@
 
 .list {
   display: flex;
+  align-items: center;
   gap: 2em;
   height: 100%;
+}
+
+.button_ui {
+  composes: button_ui from '@/styles/comment-form.module.css';
 }
 
 @media (hover: hover) {

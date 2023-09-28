@@ -69,7 +69,8 @@ h2,
 h3,
 p,
 figure,
-ul {
+ul,
+hr {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -82,6 +83,15 @@ ul {
   margin-block-start: 0;
   margin-block-end: 0;
   /* 横幅の処理で、paddingを含むよう設定 */
+}
+
+input,
+select,
+textarea,
+button {
+  -webkit-appearance: none;
+  /*iPhone:safariの角丸も消す*/
+  border-radius: 0;
 }
 
 a {
