@@ -1,0 +1,59 @@
+.login_container {
+  margin: 15em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input_wrapper {
+  padding: 3em 4em;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.input_wrapper > * + * {
+  margin-top: 1em;
+}
+
+.input_ui {
+  border: none;
+  border-bottom: 1px solid var(--gray60);
+  font-size: var(--head3);
+  height: 2em;
+}
+
+.input_ui:focus {
+  outline: none;
+  border-bottom: 3px solid var(--cyan50);
+  /* background-color: var(--cyan25);
+  opacity: 0.2; */
+  transition: 0.2s;
+}
+
+.button_wrapper {
+  display: flex;
+  gap: 10em;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button_ui {
+  composes: button_ui from '@/styles/comment-form.module.css';
+}
+
+.button_ui_sub {
+  border-radius: 0.2em;
+  border: 1px solid var(--gray60);
+  box-shadow: none;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0 2em;
+  cursor: pointer;
+}
+
+.button_ui_sub:hover {
+  background-color: var(--gray90);
+  transition: 0.2s;
+}

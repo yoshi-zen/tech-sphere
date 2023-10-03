@@ -17,6 +17,7 @@ export default function PostConvert({ contents }) {
       {contents.map(({ richEditor, lang, source }, index) => (
         <React.Fragment key={index}>
           {/* {console.log(richEditor)} */}
+          {/* bleという記事でえらってる */}
           {parse(
             richEditor
               .replaceAll(/\$\$[^\$]*\$\$/g, (substring) =>

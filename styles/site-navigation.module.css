@@ -4,8 +4,124 @@
 
 .list {
   display: flex;
+  align-items: center;
   gap: 2em;
   height: 100%;
+}
+
+.button_ui {
+  composes: button_ui from '@/styles/comment-form.module.css';
+}
+
+@media (min-width: 768px) {
+  .hamberger_button {
+    display: none;
+  }
+
+  .list_openleft {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* ここはスマホ用の記述だよ */
+  .hamberger_button {
+    all: unset;
+    outline: revert;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+  }
+
+  .hamberger_button::before,
+  .hamberger_button::after,
+  .hamberger_button .hamberger_bar {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--gray80);
+    transition: 0.3s;
+  }
+
+  /* anime -> */
+  .close .hamberger_button::before {
+    transform: translateY(-10px);
+  }
+
+  .close .hamberger_button::after {
+    transform: translateY(10px);
+  }
+
+  .open .hamberger_button .hamberger_bar {
+    opacity: 0;
+  }
+
+  .open .hamberger_button::before {
+    transform: rotate(45deg);
+  }
+
+  .open .hamberger_button::after {
+    transform: rotate(-45deg);
+  }
+  /* anime <- */
+
+  .close .hamberger_button {
+    color: var(--gray80);
+  }
+
+  .open .hamberger_button {
+    color: var(--gray80);
+  }
+
+  .list {
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    z-index: 100;
+    background: var(--white);
+    transition: transform 0.3s;
+    flex-direction: column;
+    gap: 1em;
+    align-items: baseline;
+    padding: 6em 0 0 3em;
+    filter: drop-shadow(-3px 0px 4px rgba(0, 0, 0, 0.35));
+  }
+
+  .open .list {
+    transform: translateX(-30%);
+  }
+
+  .open .list_openleft {
+    content: '>';
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 2rem;
+    height: 10rem;
+    top: calc(50% - 5rem);
+    left: -1.5rem;
+    border-radius: 2em 0 0 2em;
+    /* border: 10px solid var(--white); */
+    /* background: red; */
+    background-color: var(--white);
+    /* box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35); */
+    z-index: 100;
+  }
+
+  .close .list_openleft {
+    display: none;
+  }
+
+  .close .list {
+    filter: none;
+  }
 }
 
 @media (hover: hover) {
@@ -22,6 +138,7 @@
 }
 
 @media (hover: none) {
+  /* ホバーがない環境下(スマホとタブレット) */
   .list a {
     -webkit-tap-highlight-color: transparent;
     /* タップ時の標準ハイライトを削除 */
