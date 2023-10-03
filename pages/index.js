@@ -10,6 +10,7 @@ import NewArticles from 'components/new-articles'
 import AuthorsList from 'components/authors-list'
 import CategoryList from '@/components/category-list'
 
+// どうしてかねぇ、、、
 export default function Home({ posts, authors, categories }) {
   return (
     <PageContainer>
