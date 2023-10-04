@@ -15,7 +15,8 @@
   /* vw:500-900pxで変化するようになってる */
   /* 参考サイト：https://clamp.font-size.app/ */
   /* --body: clamp(0.75rem, 0.2813rem + 1.5vw, 1.125rem); */
-  --body: clamp(0.625rem, 0.3571rem + 0.8571vw, 1rem);
+  /* --body: clamp(0.625rem, 0.3571rem + 0.8571vw, 1rem); */
+  --body: clamp(0.875rem, 0.482rem + 0.82vw, 1.25rem);
   /* 10-16px */
   /* --disp: clamp(2.5rem, -2.8125rem + 17vw, 6.75rem); */
   --disp: clamp(2.5rem, -0.5357rem + 9.7143vw, 6.75rem);
@@ -111,4 +112,10 @@ pre {
 
 main {
   margin-top: 100px;
+}
+
+iframe {
+  height: auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
