@@ -132,12 +132,14 @@
   background: #fcfcfc;
   /* padding: 0.5em 0.5em 0.5em 2em; */
   padding-left: 1em;
-  margin-left: 1em;
+  /* margin-left: 1em; */
   border: solid 0.1em gray; /*線の種類 太さ 色*/
+  border-radius: 0.2em;
+  position: relative;
+  counter-reset: listnum;
 }
 
-.stack ul li::before,
-.stack ol li::before {
+.stack ul li::before {
   content: '・ ';
 }
 
@@ -145,4 +147,12 @@
 .stack ol li {
   line-height: 1; /*文の行高*/
   padding: 0.5em 0; /*前後の文との余白*/
+  list-style-type: none;
+}
+
+.stack ol li::before {
+  display: inline-block;
+  width: 2em;
+  counter-increment: listnum; /* counter-resetと同じ文字列 */
+  content: counter(listnum) '.';
 }
