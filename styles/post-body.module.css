@@ -24,6 +24,8 @@
 .stack h2,
 .stack h3 {
   --stack-space: 2em;
+  /* padding-top: 60px;
+  margin-top: -60px; */
 }
 
 .stack h4 {
