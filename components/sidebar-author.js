@@ -15,6 +15,7 @@ export default function SidebarAuthor({ author, slug }) {
       headingsOffset: 120,
       scrollSmoothOffset: -120,
       // 固定ヘッダの回避
+      hasInnerContainers: true,
     })
     return () => tocbot.destroy()
   }, [slug])
@@ -34,6 +35,7 @@ export default function SidebarAuthor({ author, slug }) {
           <style jsx global>{`
             .toc {
               padding: 0 1rem 0;
+              font-size: 0.875rem;
             }
 
             .toc-list {
@@ -58,27 +60,37 @@ export default function SidebarAuthor({ author, slug }) {
               color: var(--gray40);
             }
 
+            .toc-link::before {
+              content: '';
+              display: inline-block;
+              position: relative;
+              width: 0.5rem;
+              height: 0.5rem;
+              background-color: var(--gray40);
+              border-radius: 50%;
+              border: 1px solid var(--gray40);
+              margin-right: 0.5rem;
+              margin-left: -1rem;
+            }
+
+            .toc-list .toc-list .toc-link::before {
+              left: -1.5rem;
+              border: 2px solid var(--gray40);
+              background-color: var(--white);
+            }
+
             .is-active-link {
               color: var(--gray80);
               font-weight: 700;
             }
 
             .is-active-link::before {
-              content: '';
-              display: inline-block;
-              position: relative;
-              width: 0.5rem;
-              height: 0.5rem;
               background-color: var(--cyan50);
-              border-radius: 50%;
               border: 1px solid var(--cyan50);
-              margin-right: 0.5rem;
-              margin-left: -1rem;
             }
 
             .toc-list .toc-list .is-active-link::before {
-              left: -1.5rem;
-              border: 1px solid var(--cyan50);
+              border: 2px solid var(--cyan50);
               background-color: var(--white);
             }
           `}</style>
