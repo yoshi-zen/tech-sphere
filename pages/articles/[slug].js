@@ -21,6 +21,7 @@ import CategoryList from 'components/category-list'
 import PostConvert from 'components/post-convert'
 import { extractText } from 'lib/extract-text'
 import CommentForm from '@/components/comment-form'
+import SidebarAuthor from '@/components/sidebar-author'
 
 export default function Post({
   title,
@@ -37,6 +38,8 @@ export default function Post({
   next,
   allCats,
 }) {
+  const h1_list = contentParts.filter((part) => part.type === 'h1')
+  console.log(h1_list)
   return (
     <PageContainer>
       <PageMeta
@@ -67,9 +70,11 @@ export default function Post({
                 priority
               />
             </figure>
-            <PostBody>
-              <PostConvert contents={contentParts} />
-            </PostBody>
+            <div className="post">
+              <PostBody>
+                <PostConvert contents={contentParts} />
+              </PostBody>
+            </div>
           </article>
 
           <CommentForm slug={slug} />
@@ -77,8 +82,9 @@ export default function Post({
         </TwoMain>
 
         <TwoSide>
-          <NewArticles list="新着記事" posts={posts} />
-          <CategoryList allCats={allCats} />
+          {/* <NewArticles list="新着記事" posts={posts} />
+          <CategoryList allCats={allCats} /> */}
+          <SidebarAuthor author={author} slug={slug} />
         </TwoSide>
       </TwoColumn>
     </PageContainer>
