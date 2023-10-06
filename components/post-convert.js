@@ -10,7 +10,7 @@ import parse from 'html-react-parser'
 export default function PostConvert({ contents }) {
   useEffect(() => {
     Prism.highlightAll()
-  }, [])
+  })
 
   return (
     <>

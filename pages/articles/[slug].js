@@ -12,6 +12,7 @@ import {
   getPostByDate,
   getAllPosts,
   getAllCategories,
+  getDraftPost,
 } from 'lib/api'
 import PostBody from 'components/post-body'
 import NewArticles from 'components/new-articles'
@@ -37,9 +38,8 @@ export default function Post({
   prev,
   next,
   allCats,
+  isDraft,
 }) {
-  const h1_list = contentParts.filter((part) => part.type === 'h1')
-  console.log(h1_list)
   return (
     <PageContainer>
       <PageMeta
@@ -51,6 +51,22 @@ export default function Post({
       />
       <TwoColumn>
         <TwoMain>
+          {isDraft && (
+            <div
+              style={{
+                backgroundColor: 'orange',
+                borderRadius: '5px',
+                marginBottom: '20px',
+                padding: '10px',
+                color: 'white',
+                fontSize: '14px',
+              }}
+            >
+              <p>
+                これはプレビュー画面です。投稿は完了していないので、レイアウト確認後はCMSで公開してください。
+              </p>
+            </div>
+          )}
           <article>
             <PostHeader
               title={title}
@@ -59,6 +75,7 @@ export default function Post({
               publishDate={pDate}
               revisedDate={rDate}
             />
+
             <figure>
               <Image
                 src={eyecatch.url}
@@ -93,24 +110,38 @@ export default function Post({
 
 export async function getStaticPaths() {
   const allSlugs = await getAllSlugs()
-  // console.log(allSlugs)
   /* 全スラッグを取得 */
   return {
     // paths: ['/articles/esp1'],
     paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
+    // paths: allSlugs.map(({ slug }) => {
+    //   return { params: { slug: slug } }
+    // }),
     fallback: false,
+    // fallback: true,
   }
 }
 
 export async function getStaticProps(context) {
+  console.log(context)
   const slug = context.params.slug
+  // 公開済記事は設定スラッグ、ドラフト記事はidが来る
 
   /* プレビュー用！ */
   // const draftKey = context.previewData.draftKey
   //   ? { draftKey: context.previewData.draftKey }
   //   : {}
 
-  const post = await getPostBySlug(slug)
+  const draftKey = context.previewData?.draftKey ?? '' // ドラフトキー取得
+  const isDraft = draftKey !== '' // ドラフトキーがあるかどうか
+  // const post = isDraft
+  //   ? await getDraftPost(slug, draftKey)
+  //   : await getPostBySlug(slug)
+  // const post = await getPostBySlug(slug)
+  const post = await getPostBySlug(slug, draftKey)
+
+  console.log('!!!!!!!!!1post')
+  console.log(post)
 
   const posts = await getPostByDate()
   /* 2ポストだけ　これいるか…？ */
@@ -136,9 +167,10 @@ export async function getStaticProps(context) {
       eyecatch: post.eyecatch,
       contentParts: post.contentParts,
       posts: posts,
-      prev: prev,
-      next: next,
+      prev: isDraft ? '' : prev,
+      next: isDraft ? '' : next,
       allCats: allCats,
+      isDraft: isDraft,
     },
   }
 }

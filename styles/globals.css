@@ -109,6 +109,8 @@ code {
 
 pre {
   padding: 0 var(--space-xs);
+  font-size: var(--small);
+  overflow: scroll;
 }
 
 body {
