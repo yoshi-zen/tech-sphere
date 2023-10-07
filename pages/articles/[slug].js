@@ -26,6 +26,7 @@ import SidebarAuthor from '@/components/sidebar-author'
 import fetch from 'node-fetch'
 import Link from 'next/link'
 import PreviewDialog from '@/components/preview-dialog'
+import { useRouter } from 'next/router'
 
 export default function Post({
   title,
@@ -43,6 +44,10 @@ export default function Post({
   allCats,
   draftMode,
 }) {
+  const router = useRouter()
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
   return (
     <PageContainer>
       <PageMeta
@@ -102,12 +107,13 @@ export async function getStaticPaths() {
   /* 全スラッグを取得 */
   return {
     paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
+    // fallback: false,
     fallback: true,
   }
 }
 
 export async function getStaticProps(context) {
-  // console.log(context)
+  console.log(context)
   const slug = context.params.slug
   const draftKey = context.previewData?.draftKey ?? ''
 
@@ -125,9 +131,15 @@ export async function getStaticProps(context) {
         .catch((error) => null)
     : await getPostBySlug(slug)
 
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
+
   // 公開済記事は設定スラッグ、ドラフト記事はidが来る
 
-  // console.log(post)
+  console.log(post.title)
 
   const posts = await getPostByDate()
   /* 2ポストだけ　これいるか…？ */
@@ -155,5 +167,6 @@ export async function getStaticProps(context) {
       allCats: allCats,
       draftMode: draftKey ? true : false,
     },
+    notFound: !post,
   }
 }
