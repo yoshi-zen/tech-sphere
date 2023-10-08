@@ -11,7 +11,7 @@ export default function SidebarAuthor({ author, slug }) {
     tocbot.init({
       tocSelector: '.toc',
       contentSelector: '.post',
-      headingSelector: 'h2, h3',
+      headingSelector: 'h2, h3, h4',
       headingsOffset: 120,
       scrollSmoothOffset: -120,
       // 固定ヘッダの回避
@@ -36,6 +36,7 @@ export default function SidebarAuthor({ author, slug }) {
             .toc {
               padding: 0 1rem 0;
               font-size: 0.875rem;
+              color: var(--gray40);
             }
 
             .toc-list {
@@ -54,10 +55,6 @@ export default function SidebarAuthor({ author, slug }) {
 
             .toc-list-item:last-child {
               padding-bottom: 0;
-            }
-
-            .toc-link {
-              color: var(--gray40);
             }
 
             .toc-link::before {
@@ -79,6 +76,12 @@ export default function SidebarAuthor({ author, slug }) {
               background-color: var(--white);
             }
 
+            .toc-list .toc-list .toc-list .toc-link::before {
+              left: -3rem;
+              border: 2px solid var(--gray40);
+              background-color: var(--white);
+            }
+
             .is-active-link {
               color: var(--gray80);
               font-weight: 700;
@@ -89,7 +92,8 @@ export default function SidebarAuthor({ author, slug }) {
               border: 1px solid var(--cyan50);
             }
 
-            .toc-list .toc-list .is-active-link::before {
+            .toc-list .toc-list .is-active-link::before,
+            .toc-list .toc-list .toc-list .is-active-link::before {
               border: 2px solid var(--cyan50);
               background-color: var(--white);
             }
