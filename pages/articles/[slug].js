@@ -23,6 +23,10 @@ import PostConvert from 'components/post-convert'
 import { extractText } from 'lib/extract-text'
 import CommentForm from '@/components/comment-form'
 import SidebarAuthor from '@/components/sidebar-author'
+import fetch from 'node-fetch'
+import Link from 'next/link'
+import PreviewDialog from '@/components/preview-dialog'
+import { useRouter } from 'next/router'
 
 export default function Post({
   title,
@@ -38,8 +42,12 @@ export default function Post({
   prev,
   next,
   allCats,
-  isDraft,
+  draftMode,
 }) {
+  const router = useRouter()
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
   return (
     <PageContainer>
       <PageMeta
@@ -51,22 +59,7 @@ export default function Post({
       />
       <TwoColumn>
         <TwoMain>
-          {isDraft && (
-            <div
-              style={{
-                backgroundColor: 'orange',
-                borderRadius: '5px',
-                marginBottom: '20px',
-                padding: '10px',
-                color: 'white',
-                fontSize: '14px',
-              }}
-            >
-              <p>
-                これはプレビュー画面です。投稿は完了していないので、レイアウト確認後はCMSで公開してください。
-              </p>
-            </div>
-          )}
+          {draftMode && <PreviewDialog />}
           <article>
             <PostHeader
               title={title}
@@ -110,38 +103,43 @@ export default function Post({
 
 export async function getStaticPaths() {
   const allSlugs = await getAllSlugs()
+  // console.log(allSlugs)
   /* 全スラッグを取得 */
   return {
-    // paths: ['/articles/esp1'],
     paths: allSlugs.map(({ slug }) => `/articles/${slug}`),
-    // paths: allSlugs.map(({ slug }) => {
-    //   return { params: { slug: slug } }
-    // }),
-    fallback: false,
-    // fallback: true,
+    // fallback: false,
+    fallback: true,
   }
 }
 
 export async function getStaticProps(context) {
   console.log(context)
   const slug = context.params.slug
+  const draftKey = context.previewData?.draftKey ?? ''
+
+  // console.log(slug)
+  // console.log(draftKey)
+
+  const post = draftKey
+    ? await fetch(
+        `https://techsphere.microcms.io/api/v1/blog/${slug}${
+          draftKey !== undefined ? `?draftKey=${draftKey}` : ''
+        }`,
+        { headers: { 'X-MICROCMS-API-KEY': process.env.NEXT_PUBLIC_API_KEY } },
+      )
+        .then((res) => res.json())
+        .catch((error) => null)
+    : await getPostBySlug(slug)
+
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
+
   // 公開済記事は設定スラッグ、ドラフト記事はidが来る
 
-  /* プレビュー用！ */
-  // const draftKey = context.previewData.draftKey
-  //   ? { draftKey: context.previewData.draftKey }
-  //   : {}
-
-  const draftKey = context.previewData?.draftKey ?? '' // ドラフトキー取得
-  const isDraft = draftKey !== '' // ドラフトキーがあるかどうか
-  // const post = isDraft
-  //   ? await getDraftPost(slug, draftKey)
-  //   : await getPostBySlug(slug)
-  // const post = await getPostBySlug(slug)
-  const post = await getPostBySlug(slug, draftKey)
-
-  console.log('!!!!!!!!!1post')
-  console.log(post)
+  console.log(post.title)
 
   const posts = await getPostByDate()
   /* 2ポストだけ　これいるか…？ */
@@ -150,9 +148,6 @@ export async function getStaticProps(context) {
   const [prev, next] = prevNextPost(allPost, slug)
 
   const allCats = await getAllCategories()
-
-  // console.log(post)
-  // console.log(post.eyecatch)
   const description = extractText(post.content)
 
   return {
@@ -167,10 +162,11 @@ export async function getStaticProps(context) {
       eyecatch: post.eyecatch,
       contentParts: post.contentParts,
       posts: posts,
-      prev: isDraft ? '' : prev,
-      next: isDraft ? '' : next,
+      prev: draftKey ? '' : prev,
+      next: draftKey ? '' : next,
       allCats: allCats,
-      isDraft: isDraft,
+      draftMode: draftKey ? true : false,
     },
+    notFound: !post,
   }
 }
