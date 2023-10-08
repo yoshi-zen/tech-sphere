@@ -1,0 +1,32 @@
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: sticky;
+  top: 70px;
+  left: 0;
+  padding: 10px;
+  z-index: 500;
+  background-color: var(--white);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.title_wrapper {
+  /* background-color: var(--cyan25); */
+  color: var(--gray80);
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.button_wrapper {
+  background-color: red;
+  color: white;
+  width: 7em;
+  text-align: center;
+  font-size: var(--head3);
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
