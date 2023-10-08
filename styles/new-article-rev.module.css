@@ -1,3 +1,8 @@
+.container {
+  width: 100%;
+  margin-bottom: var(--space-lg);
+}
+
 .title1 {
   composes: title from 'styles/post-header.module.css';
   margin-bottom: var(--space-xs);
@@ -7,7 +12,7 @@
 .sub {
   display: grid;
   filter: drop-shadow(3px 3px 7px rgba(0, 0, 0, 0.1));
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xs);
   grid-gap: 1rem;
 }
 
