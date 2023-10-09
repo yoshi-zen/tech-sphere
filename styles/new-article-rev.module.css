@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  margin-bottom: var(--space-lg);
+}
+
+.title1 {
+  composes: title from 'styles/post-header.module.css';
+  margin-bottom: var(--space-xs);
+}
+
+.main,
+.sub {
+  display: grid;
+  filter: drop-shadow(3px 3px 7px rgba(0, 0, 0, 0.1));
+  margin-bottom: var(--space-xs);
+  grid-gap: 1rem;
+}
+
+.main {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.sub {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 767px) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

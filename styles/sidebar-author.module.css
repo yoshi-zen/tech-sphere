@@ -45,8 +45,8 @@
   padding: 0.5em 0 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .container {
     display: none;
   }
-}
+} */

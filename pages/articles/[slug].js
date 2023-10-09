@@ -9,7 +9,6 @@ import { TwoColumn, TwoMain, TwoSide } from 'components/two-column'
 import {
   getPostBySlug,
   getAllSlugs,
-  getPostByDate,
   getAllPosts,
   getAllCategories,
   getDraftPost,
@@ -27,6 +26,8 @@ import fetch from 'node-fetch'
 import Link from 'next/link'
 import PreviewDialog from '@/components/preview-dialog'
 import { useRouter } from 'next/router'
+import NewArticleCard from '@/components/new-article-card'
+import NewArticleRev from '@/components/new-article-rev'
 
 export default function Post({
   title,
@@ -38,11 +39,10 @@ export default function Post({
   author,
   eyecatch,
   contentParts,
-  posts,
   prev,
   next,
-  allCats,
   draftMode,
+  newPosts,
 }) {
   const router = useRouter()
   if (router.isFallback) {
@@ -92,11 +92,10 @@ export default function Post({
         </TwoMain>
 
         <TwoSide>
-          {/* <NewArticles list="新着記事" posts={posts} />
-          <CategoryList allCats={allCats} /> */}
           <SidebarAuthor author={author} slug={slug} />
         </TwoSide>
       </TwoColumn>
+      <NewArticleRev posts={newPosts} main />
     </PageContainer>
   )
 }
@@ -113,7 +112,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log(context)
+  // console.log(context)
   const slug = context.params.slug
   const draftKey = context.previewData?.draftKey ?? ''
 
@@ -136,18 +135,12 @@ export async function getStaticProps(context) {
       notFound: true,
     }
   }
-
-  // 公開済記事は設定スラッグ、ドラフト記事はidが来る
-
-  console.log(post.title)
-
-  const posts = await getPostByDate()
-  /* 2ポストだけ　これいるか…？ */
+  // console.log(post.title)
 
   const allPost = await getAllPosts()
+  console.log(allPost[0])
   const [prev, next] = prevNextPost(allPost, slug)
 
-  const allCats = await getAllCategories()
   const description = extractText(post.content)
 
   return {
@@ -161,11 +154,10 @@ export async function getStaticProps(context) {
       author: post.author,
       eyecatch: post.eyecatch,
       contentParts: post.contentParts,
-      posts: posts,
       prev: draftKey ? '' : prev,
       next: draftKey ? '' : next,
-      allCats: allCats,
       draftMode: draftKey ? true : false,
+      newPosts: allPost,
     },
     notFound: !post,
   }
