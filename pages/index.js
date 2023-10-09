@@ -15,6 +15,7 @@ import NewArticles from 'components/new-articles'
 import AuthorsList from 'components/authors-list'
 import CategoryList from '@/components/category-list'
 import NewArticleRev from '@/components/new-article-rev'
+import AuthorsListRev from '@/components/authors-list-rev'
 
 // どうしてかねぇ、、、
 export default function Home({ posts, authors, categories }) {
@@ -33,7 +34,8 @@ export default function Home({ posts, authors, categories }) {
           <div className={styles.siteHead}>
             {/* <NewArticles list="新着記事" posts={posts} main /> */}
             <NewArticleRev posts={posts} />
-            <AuthorsList authors={authors} />
+            {/* <AuthorsList authors={authors} /> */}
+            <AuthorsListRev authors={authors} />
 
             <section>
               <h1 className={styles.title}>About us</h1>
@@ -58,6 +60,7 @@ export async function getStaticProps() {
   // const posts = await getPostByDate(num)
   const posts = await getAllPosts()
   const authors = await getAuthor()
+  console.log(authors)
   const categories = await getAllCategories()
 
   return {

@@ -1,0 +1,32 @@
+.card_container {
+  /* background-color: var(--gray20); */
+  background-color: var(--white);
+  position: relative;
+  cursor: pointer;
+  clip-path: inset(0 round 0.5em);
+}
+
+.title_wrapper {
+  padding: 0 var(--space-xxs) var(--space-xxs);
+  width: 100%;
+}
+
+.name_pic_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-direction: row;
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--gray60);
+}
+
+.pic_inner {
+  width: 35px;
+  height: 35px;
+  clip-path: inset(0 round 0.5em);
+}
+
+.intro {
+  padding-top: 0.5em;
+  font-size: var(--small);
+}
