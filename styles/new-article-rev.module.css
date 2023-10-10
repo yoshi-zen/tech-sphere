@@ -13,7 +13,8 @@
   display: grid;
   filter: drop-shadow(3px 3px 7px rgba(0, 0, 0, 0.1));
   margin-bottom: var(--space-xs);
-  grid-gap: 1rem;
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
 }
 
 .main {
