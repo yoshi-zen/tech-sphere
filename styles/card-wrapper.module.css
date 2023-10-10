@@ -1,0 +1,28 @@
+.card_wrapper,
+.list_wrapper {
+  background-color: var(--white);
+  position: relative;
+  clip-path: inset(0 round 0.5em);
+  display: flex;
+}
+
+.list_wrapper {
+  flex-direction: row;
+}
+
+.card_wrapper {
+  flex-direction: column;
+}
+
+.pic_inner {
+  width: 100%;
+}
+
+.body_inner_list {
+  padding: var(--space-xxs) 0;
+}
+
+.body_inner_card {
+  padding: 0 var(--space-xxs) var(--space-xxs);
+  width: 100%;
+}

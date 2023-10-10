@@ -2,7 +2,6 @@
   /* background-color: var(--gray20); */
   background-color: var(--white);
   position: relative;
-  cursor: pointer;
   clip-path: inset(0 round 0.5em);
 }
 

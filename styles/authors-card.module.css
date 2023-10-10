@@ -1,8 +1,6 @@
 .card_container {
-  /* background-color: var(--gray20); */
   background-color: var(--white);
   position: relative;
-  cursor: pointer;
   clip-path: inset(0 round 0.5em);
 }
 
@@ -23,6 +21,7 @@
   flex-direction: row;
   padding: 0.5em 0;
   border-bottom: 1px solid var(--gray60);
+  cursor: pointer;
 }
 
 .pic_inner {
