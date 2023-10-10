@@ -60,7 +60,7 @@ export async function getStaticProps() {
   // const posts = await getPostByDate(num)
   const posts = await getAllPosts()
   const authors = await getAuthor()
-  console.log(authors)
+  // console.log(authors)
   const categories = await getAllCategories()
 
   return {
