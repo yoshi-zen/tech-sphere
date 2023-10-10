@@ -6,6 +6,7 @@ import NewArticles from 'components/new-articles'
 import { getAllCategories, getAllPosts, getPostByDate } from '@/lib/api'
 
 import CategoryList from 'components/category-list'
+import NewArticleRev from '@/components/new-article-rev'
 
 export default function Categories({ newPosts, allPosts, allCats }) {
   return (
@@ -16,10 +17,11 @@ export default function Categories({ newPosts, allPosts, allCats }) {
 
       <TwoColumn>
         <TwoMain>
-          <NewArticles posts={allPosts} list="全記事" main />
+          {/* <NewArticles posts={allPosts} list="全記事" main /> */}
+          <NewArticleRev posts={allPosts} amount={allPosts.length} showAll />
         </TwoMain>
         <TwoSide>
-          <NewArticles posts={newPosts} list="新着記事" />
+          {/* <NewArticles posts={newPosts} list="新着記事" /> */}
           <CategoryList allCats={allCats} />
         </TwoSide>
       </TwoColumn>

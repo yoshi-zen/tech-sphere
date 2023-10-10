@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 export default function NewArticleCard({ slug, title, eyecatch, author }) {
-  console.log(title)
+  // console.log(title)
   const router = useRouter()
   return (
     <div

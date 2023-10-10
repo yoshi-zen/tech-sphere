@@ -14,8 +14,8 @@ export default function AuthorsCard({ name, intro, profile, myproject }) {
       <Image
         src={myproject.url}
         alt={`eyecatch of ${name}`}
-        width={120}
-        height={63}
+        width={1200}
+        height={630}
         sizes="100vw"
         style={{
           width: '100%',
@@ -34,7 +34,7 @@ export default function AuthorsCard({ name, intro, profile, myproject }) {
           </div>
           <p style={{ fontWeight: 700 }}>{name}</p>
         </div>
-        <p className={styles.intro}>{parse(intro)}</p>
+        {parse(intro)}
       </div>
     </div>
   )
