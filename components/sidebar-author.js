@@ -4,8 +4,10 @@ import styles from '@/styles/sidebar-author.module.css'
 import parse from 'html-react-parser'
 import { useEffect } from 'react'
 import tocbot from 'tocbot'
+import { useRouter } from 'next/router'
 
 export default function SidebarAuthor({ author, slug }) {
+  const router = useRouter()
   // console.log(author)
   useEffect(() => {
     tocbot.init({
@@ -23,7 +25,10 @@ export default function SidebarAuthor({ author, slug }) {
   return (
     <PostStickyContainer>
       <div className={styles.container}>
-        <div className={styles.pic_name_wrapper}>
+        <div
+          className={styles.pic_name_wrapper}
+          onClick={() => router.push(`/authors/${author[0].name}`)}
+        >
           <div className={styles.pic_inner}>
             <Image src={author[0].profile.url} alt="" width={40} height={40} />
           </div>

@@ -11,6 +11,11 @@
   width: 100%;
 }
 
+.title_wrapper p {
+  padding-top: 0.5em;
+  font-size: var(--small);
+}
+
 .name_pic_wrapper {
   display: flex;
   align-items: center;
@@ -24,9 +29,4 @@
   width: 35px;
   height: 35px;
   clip-path: inset(0 round 0.5em);
-}
-
-.intro {
-  padding-top: 0.5em;
-  font-size: var(--small);
 }
