@@ -10,12 +10,11 @@ export default function AuthorsCard({
   intro,
   profile,
   myproject,
-  listView,
+  listView = false,
 }) {
   const router = useRouter()
   return (
-    // 試しにlistviewをtrueにしてみる！！！！
-    <CardWrapper listView>
+    <CardWrapper listView={listView}>
       <CardPicInner>
         <Image
           src={myproject.url}
@@ -31,7 +30,7 @@ export default function AuthorsCard({
           onClick={() => router.push(`/authors/${name}`)}
         />
       </CardPicInner>
-      <CardBodyInner listView>
+      <CardBodyInner listView={listView}>
         <div
           className={styles.name_pic_wrapper}
           onClick={() => router.push(`/authors/${name}`)}

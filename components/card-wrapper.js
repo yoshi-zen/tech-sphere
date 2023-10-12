@@ -1,5 +1,21 @@
 import styles from '@/styles/card-wrapper.module.css'
 
+export function CardLineUp({ children, listView = false, isLarge = false }) {
+  return (
+    <div
+      className={
+        listView
+          ? styles.line_up_list
+          : isLarge
+          ? styles.line_up_card_large
+          : styles.line_up_card_default
+      }
+    >
+      {children}
+    </div>
+  )
+}
+
 export function CardWrapper({ children, listView = false }) {
   return (
     <div className={listView ? styles.list_wrapper : styles.card_wrapper}>
