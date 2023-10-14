@@ -1,6 +1,4 @@
 import PageLayouts from '@/components/page-layouts'
-import Script from 'next/script'
-import * as gtag from 'src/lib/gtag'
 import '@/styles/globals.css'
 import 'prismjs/themes/prism-tomorrow.css'
 
