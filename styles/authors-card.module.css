@@ -28,4 +28,5 @@
   width: 35px;
   height: 35px;
   clip-path: inset(0 round 0.5em);
+  display: block;
 }

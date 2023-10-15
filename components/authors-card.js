@@ -26,6 +26,7 @@ export default function AuthorsCard({
             width: '100%',
             height: 'auto',
             cursor: 'pointer',
+            display: 'block',
           }}
           onClick={() => router.push(`/authors/${name}`)}
         />
