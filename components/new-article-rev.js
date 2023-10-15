@@ -3,6 +3,7 @@ import NewArticleCard from './new-article-card'
 import styles from '@/styles/new-article-rev.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { CardLineUp } from './card-wrapper'
 
 export default function NewArticleRev({
   posts,
@@ -13,7 +14,7 @@ export default function NewArticleRev({
   return (
     <section className={styles.container}>
       <h1 className={styles.title1}>新着記事</h1>
-      <div className={main ? styles.main : styles.sub}>
+      {/* <div className={main ? styles.main : styles.sub}>
         {posts.slice(0, amount).map(({ title, slug, eyecatch, author }) => (
           <NewArticleCard
             key={slug}
@@ -24,7 +25,19 @@ export default function NewArticleRev({
             main={main}
           />
         ))}
-      </div>
+      </div> */}
+      <CardLineUp listView={showAll ? true : false}>
+        {posts.slice(0, amount).map(({ title, slug, eyecatch, author }) => (
+          <NewArticleCard
+            key={slug}
+            slug={slug}
+            title={title}
+            eyecatch={eyecatch}
+            author={author}
+            listView={showAll ? true : false}
+          />
+        ))}
+      </CardLineUp>
       {!showAll && (
         <Link
           href="/articles"
