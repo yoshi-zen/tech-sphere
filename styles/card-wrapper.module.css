@@ -69,6 +69,6 @@
 }
 
 .body_inner_card {
-  padding: 0 var(--space-xxs) var(--space-xxs);
+  padding: 0.5em var(--space-xxs) var(--space-xxs);
   width: 100%;
 }
