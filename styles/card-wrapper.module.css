@@ -44,8 +44,10 @@
 
 .list_wrapper {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 1em;
   align-items: center;
+  padding: 0 0.5em;
 }
 
 .card_wrapper {
@@ -56,11 +58,14 @@
 /* pic */
 .pic_inner {
   width: 100%;
+  text-align: center;
 }
 
 /* body */
 .body_inner_list {
   padding: var(--space-xxs) 0;
+  /* padding: 0.5em 0; */
+  height: 100%;
 }
 
 .body_inner_card {

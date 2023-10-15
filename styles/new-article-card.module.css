@@ -1,15 +1,3 @@
-.card_container {
-  /* background-color: var(--gray20); */
-  background-color: var(--white);
-  position: relative;
-  clip-path: inset(0 round 0.5em);
-}
-
-.title_wrapper {
-  padding: 0 var(--space-xxs) var(--space-xxs);
-  width: 100%;
-}
-
 .author {
   font-size: var(--space-xxs);
   white-space: nowrap;

@@ -21,13 +21,6 @@ export default function AuthorsListRev({ authors }) {
           />
         ))}
       </CardLineUp>
-      {/* <Link
-        href="/articles"
-        style={{ fontWeight: 700, display: 'block', textAlign: 'right' }}
-      >
-        すべての記事を見る　
-        <FontAwesomeIcon icon={faChevronRight} />
-      </Link> */}
     </section>
   )
 }
