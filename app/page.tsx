@@ -1,3 +1,5 @@
+'use client'
+
 import PageContainer from 'components/page-container'
 import PageHero from 'components/page-hero'
 import styles from 'styles/Home.module.css'
@@ -16,9 +18,14 @@ import AuthorsList from 'components/authors-list'
 import CategoryList from '@/components/category-list'
 import NewArticleRev from '@/components/new-article-rev'
 import AuthorsListRev from '@/components/authors-list-rev'
+import toast from 'react-hot-toast'
+import { PageLayout } from 'frames/PageLayout/PageLayout'
 
 // どうしてかねぇ、、、
 export default function Home({ posts, authors, categories }) {
+  const handleClick = () => {
+    toast.success('Hello, world!')
+  }
   return (
     // <PageContainer>
     //   <PageMeta />
@@ -52,7 +59,9 @@ export default function Home({ posts, authors, categories }) {
     //     </TwoSide>
     //   </TwoColumn>
     // </PageContainer>
-    <div>hoge</div>
+    <PageLayout>
+      <div>aaa</div>
+    </PageLayout>
   )
 }
 
