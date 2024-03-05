@@ -4,6 +4,10 @@ import { Toaster } from 'react-hot-toast'
 
 import './globals.css'
 
+import { Noto_Sans_JP } from 'next/font/google'
+
+const noto_sans_jp = Noto_Sans_JP({ subsets: ['latin'] })
+
 export const metadata: Metadata = {
   title: 'TechSphere',
   description: '理系大学生による技術共有サイト',
@@ -13,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={noto_sans_jp.className}>
         {children}
         <Toaster />
       </body>
