@@ -29,7 +29,7 @@
     "katex": "^0.16.4",
     "marked-katex": "^0.3.8",
     "microcms-js-sdk": "^2.3.2",
-    "next": "^13.4.3-canary.2",
+    "next": "^14.1.2",
     "node-fetch": "^3.3.1",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
