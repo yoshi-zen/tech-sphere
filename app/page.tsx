@@ -65,6 +65,14 @@ export default function Home({ posts, authors, categories }) {
       <div className=" text-9xl">aaa</div>
       <div className=" text-9xl">aaa</div>
       <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
+      <div className=" text-9xl">aaa</div>
     </PageLayout>
   )
 }

@@ -42,3 +42,8 @@ body {
     text-wrap: balance;
   }
 }
+
+/* ヘッダーのアンダーラインのアニメ */
+.underline-loop-anime {
+  @apply after:block after:absolute after:left-0 after:bottom-0 after:translate-y-[1px] after:h-[2px] after:w-1/2 after:bg-gradient-to-r after:from-black after:via-white after:to-black after:rounded-full after:animate-loop;
+}
