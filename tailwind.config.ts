@@ -16,6 +16,7 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'fade-out': 'fadeOut 0.5s ease-in-out',
+        loop: 'loop 10s linear infinite',
       },
       fontFamily: {
         JP: ['Noto Sans JP', 'sans-serif'],
@@ -62,6 +63,16 @@ const config: Config = {
         0: '0',
         1: '1',
         infinity: 'calc(infinity)',
+      },
+      keyframes: {
+        loop: {
+          '0%': {
+            transform: 'translateX(-50vw)',
+          },
+          to: {
+            transform: 'translateX(100vw)',
+          },
+        },
       },
     },
   },
